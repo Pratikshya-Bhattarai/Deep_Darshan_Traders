@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Darshan Traders Pvt. Ltd.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .animate-fade { animation: fadeIn 1s ease-in; }
+    .hover-scale:hover { transform: scale(1.05); transition: transform 0.3s; }
+  </style>
+</head>
+<body class="font-sans bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100">
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-6 shadow-lg">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-3xl font-extrabold tracking-tight">Deep Darshan Traders</h1>
+      <nav>
+        <ul class="flex space-x-6 text-lg">
+          <li><a href="#home" class="hover:text-yellow-300 transition-colors">Home</a></li>
+          <li><a href="#about" class="hover:text-yellow-300 transition-colors">About</a></li>
+          <li><a href="#services" class="hover:text-yellow-300 transition-colors">Services</a></li>
+          <li><a href="#contact" class="hover:text-yellow-300 transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="bg-cover bg-center h-96 flex items-center justify-center animate-fade" style="background-image: url('https://source.unsplash.com/random/1600x900/?furniture,modern')">
+    <div class="text-center text-white bg-black bg-opacity-50 p-8 rounded-lg">
+      <h2 class="text-5xl font-bold mb-4 drop-shadow-lg">Vibrant Furniture Solutions</h2>
+      <p class="text-xl font-semibold">Transform Your Space with Style!</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700">About Us</h2>
+      <p class="text-lg text-gray-800 max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md hover-scale">
+        Deep Darshan Traders Pvt. Ltd. brings 8+ years of crafting high-quality furniture and furnishings. Our focus on quality, customization, and modern designs adds elegance to homes and offices alike.
+      </p>
+    </div>
+  </section>
+
+  <!-- Materials Section -->
+  <section class="bg-gradient-to-r from-pink-200 to-purple-200 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-8 text-purple-800">Our Materials</h2>
+      <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Japanese Technology Tesa Board</li>
+        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Seesaw</li>
+        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Local Materials</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700">Our Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+        <div class="bg-yellow-100 p-6 rounded-lg shadow-md hover-scale text-center text-gray-800">Furniture Assembly at Your Location</div>
+        <div class="bg-yellow-100 p-6 rounded-lg shadow-md hover-scale text-center text-gray-800">Custom Designs Available</div>
+        <div class="bg-yellow-100 p-6 rounded-lg shadow-md hover-scale text-center text-gray-800">Visit Our Showroom</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warranty & Offers Section -->
+  <section class="bg-gradient-to-r from-blue-200 to-indigo-200 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-800">Warranty & Offers</h2>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Warranty: 10–25 Years</li>
+        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Festival Offer: 15% Off till Dashain</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700">Get in Touch</h2>
+      <div class="bg-white p-6 rounded-lg shadow-md max-w-3xl mx-auto text-gray-800">
+        <p class="mb-2"><strong class="text-indigo-600">Address:</strong> Suryadarshan Height, Near Dhamaltar Shantibatika Park</p>
+        <p class="mb-2"><strong class="text-indigo-600">Phone:</strong> 9817284878 / 9802330089</p>
+        <p class="mb-2"><strong class="text-indigo-600">WhatsApp:</strong> 9817284878</p>
+        <p class="mb-2"><strong class="text-indigo-600">Store Hours:</strong> 7:00 AM – 8:00 PM</p>
+        <p class="mb-2"><strong class="text-indigo-600">Delivery:</strong> Free within 3 km in Kathmandu Valley</p>
+        <p><strong class="text-indigo-600">Payment Options:</strong> Cash, UPI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-lg">&copy; 2025 Deep Darshan Traders Pvt. Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
