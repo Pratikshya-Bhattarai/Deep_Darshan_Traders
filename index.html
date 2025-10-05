@@ -1,105 +1,336 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="antialiased">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deep Darshan Traders Pvt. Ltd.</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deep Darshan Traders | Custom Furniture in Kathmandu</title>
+  <meta name="description" content="Deep Darshan Traders crafts premium custom furniture in Kathmandu: sofas, beds, cabinets, modular kitchens, and more with quality materials and modern design." />
+  <link rel="canonical" href="https://deep-darshan-traders.vercel.app/" />
+  <meta name="theme-color" content="#0f172a" id="theme-color" />
+
+  <!-- Preconnects & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload critical hero image -->
+  <link rel="preload" as="image" href="/images/sofa.png" fetchpriority="high" />
+
+  <!-- Icons & Manifest -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://deep-darshan-traders.vercel.app/" />
+  <meta property="og:title" content="Deep Darshan Traders | Custom Furniture in Kathmandu" />
+  <meta property="og:description" content="Premium custom furniture: sofas, beds, cabinets, modular kitchens and more." />
+  <meta property="og:image" content="https://deep-darshan-traders.vercel.app/images/sofa.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Deep Darshan Traders | Custom Furniture in Kathmandu" />
+  <meta name="twitter:description" content="Premium custom furniture: sofas, beds, cabinets, modular kitchens and more." />
+  <meta name="twitter:image" content="https://deep-darshan-traders.vercel.app/images/sofa.png" />
+
+  <!-- JSON-LD Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Deep Darshan Traders Pvt. Ltd.",
+    "url": "https://deep-darshan-traders.vercel.app/",
+    "logo": "https://deep-darshan-traders.vercel.app/favicon.svg",
+    "sameAs": [
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+977-9817284878",
+      "contactType": "customer service",
+      "areaServed": "NP"
+    },{
+      "@type": "ContactPoint",
+      "telephone": "+977-9802330089",
+      "contactType": "customer service",
+      "areaServed": "NP"
+    }],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Suryadarshan Height, Near Dhamaltar Shantibatika Park",
+      "addressLocality": "Kathmandu",
+      "addressRegion": "Bagmati",
+      "addressCountry": "NP"
+    }
+  }
+  </script>
+
+  <!-- Tailwind config & CDN -->
+  <script>
+    tailwind = { config: { darkMode: 'class' } };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .animate-fade { animation: fadeIn 1s ease-in; }
-    .hover-scale:hover { transform: scale(1.05); transition: transform 0.3s; }
+    :root { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .focus-ring:focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-in { animation: fade-in .8s ease-out both; }
+      @keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    }
   </style>
 </head>
-<body class="font-sans bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100">
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+  <a href="#main" class="sr-only focus:not-sr-only focus-ring fixed left-3 top-3 z-50 bg-indigo-600 text-white px-3 py-2 rounded-md">Skip to content</a>
+
   <!-- Header -->
-  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-6 shadow-lg">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold tracking-tight">Deep Darshan Traders</h1>
-      <nav>
-        <ul class="flex space-x-6 text-lg">
-          <li><a href="#home" class="hover:text-yellow-300 transition-colors">Home</a></li>
-          <li><a href="#about" class="hover:text-yellow-300 transition-colors">About</a></li>
-          <li><a href="#services" class="hover:text-yellow-300 transition-colors">Services</a></li>
-          <li><a href="#contact" class="hover:text-yellow-300 transition-colors">Contact</a></li>
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-700">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2 font-bold text-lg focus-ring" aria-label="Deep Darshan Traders Home">
+        <img src="/favicon.svg" alt="Deep Darshan Traders" class="h-7 w-7" width="28" height="28" />
+        <span>Deep Darshan Traders</span>
+      </a>
+      <nav aria-label="Primary">
+        <button id="menuButton" class="md:hidden focus-ring px-3 py-2 rounded-md border border-slate-300 dark:border-slate-600" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <span class="sr-only">Menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <ul class="hidden md:flex items-center gap-6">
+          <li><a class="hover:text-indigo-600 dark:hover:text-indigo-400 focus-ring" href="#about">About</a></li>
+          <li><a class="hover:text-indigo-600 dark:hover:text-indigo-400 focus-ring" href="#services">Services</a></li>
+          <li><a class="hover:text-indigo-600 dark:hover:text-indigo-400 focus-ring" href="#gallery">Gallery</a></li>
+          <li><a class="hover:text-indigo-600 dark:hover:text-indigo-400 focus-ring" href="#contact">Contact</a></li>
+          <li>
+            <button id="themeToggle" class="focus-ring rounded-md px-2 py-1 border border-slate-300 dark:border-slate-600" aria-pressed="false" aria-label="Toggle dark mode">
+              <span id="themeIcon">🌙</span>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+      <ul class="px-4 py-3 space-y-2">
+        <li><a class="block px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" href="#about">About</a></li>
+        <li><a class="block px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" href="#services">Services</a></li>
+        <li><a class="block px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" href="#gallery">Gallery</a></li>
+        <li><a class="block px-2 py-2 rounded hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="bg-cover bg-center h-96 flex items-center justify-center animate-fade" style="background-image: url('https://source.unsplash.com/random/1600x900/?furniture,modern')">
-    <div class="text-center text-white bg-black bg-opacity-50 p-8 rounded-lg">
-      <h2 class="text-5xl font-bold mb-4 drop-shadow-lg">Vibrant Furniture Solutions</h2>
-      <p class="text-xl font-semibold">Transform Your Space with Style!</p>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700">About Us</h2>
-      <p class="text-lg text-gray-800 max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md hover-scale">
-        Deep Darshan Traders Pvt. Ltd. brings 8+ years of crafting high-quality furniture and furnishings. Our focus on quality, customization, and modern designs adds elegance to homes and offices alike.
-      </p>
-    </div>
-  </section>
-
-  <!-- Materials Section -->
-  <section class="bg-gradient-to-r from-pink-200 to-purple-200 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-8 text-purple-800">Our Materials</h2>
-      <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Japanese Technology Tesa Board</li>
-        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Seesaw</li>
-        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Local Materials</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700">Our Services</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-        <div class="bg-yellow-100 p-6 rounded-lg shadow-md hover-scale text-center text-gray-800">Furniture Assembly at Your Location</div>
-        <div class="bg-yellow-100 p-6 rounded-lg shadow-md hover-scale text-center text-gray-800">Custom Designs Available</div>
-        <div class="bg-yellow-100 p-6 rounded-lg shadow-md hover-scale text-center text-gray-800">Visit Our Showroom</div>
+  <main id="main" tabindex="-1">
+    <!-- Hero -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-8 items-center">
+        <div class="fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Premium Custom Furniture for Modern Living
+          </h1>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+            Crafted with care in Kathmandu — sofas, beds, cabinets, modular kitchens, and more.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus-ring">Get a Quote</a>
+            <a href="#services" class="inline-flex items-center justify-center px-5 py-3 rounded-md border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 focus-ring">Our Services</a>
+          </div>
+        </div>
+        <div class="relative fade-in">
+          <img
+            src="/images/sofa.png"
+            alt="Modern sofa crafted by Deep Darshan Traders"
+            width="1200" height="900"
+            class="w-full h-auto rounded-xl shadow-xl ring-1 ring-black/5"
+            loading="eager" decoding="async" fetchpriority="high"
+          />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Warranty & Offers Section -->
-  <section class="bg-gradient-to-r from-blue-200 to-indigo-200 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-800">Warranty & Offers</h2>
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Warranty: 10–25 Years</li>
-        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Festival Offer: 15% Off till Dashain</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700">Get in Touch</h2>
-      <div class="bg-white p-6 rounded-lg shadow-md max-w-3xl mx-auto text-gray-800">
-        <p class="mb-2"><strong class="text-indigo-600">Address:</strong> Suryadarshan Height, Near Dhamaltar Shantibatika Park</p>
-        <p class="mb-2"><strong class="text-indigo-600">Phone:</strong> 9817284878 / 9802330089</p>
-        <p class="mb-2"><strong class="text-indigo-600">WhatsApp:</strong> 9817284878</p>
-        <p class="mb-2"><strong class="text-indigo-600">Store Hours:</strong> 7:00 AM – 8:00 PM</p>
-        <p class="mb-2"><strong class="text-indigo-600">Delivery:</strong> Free within 3 km in Kathmandu Valley</p>
-        <p><strong class="text-indigo-600">Payment Options:</strong> Cash, UPI</p>
+    <!-- About -->
+    <section id="about" class="py-16 md:py-20 border-t border-slate-100 dark:border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">About Us</h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300">
+          Deep Darshan Traders Pvt. Ltd. brings 8+ years of crafting high‑quality furniture and furnishings.
+          We focus on quality, customization, and timeless design suited for homes and offices alike.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-16 md:py-20 bg-slate-50 dark:bg-slate-800/40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Our Services</h2>
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="rounded-xl border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">
+            <h3 class="font-semibold">On‑site Assembly</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-300">Professional installation at your location for a perfect fit.</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">
+            <h3 class="font-semibold">Custom Design</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-300">Tailored solutions matching your space, taste, and budget.</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">
+            <h3 class="font-semibold">Showroom Visit</h3>
+            <p class="mt-2 text-slate-600 dark:text-slate-300">Explore materials and finishes. Free delivery within 3 km.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Featured Work</h2>
+        <ul class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <li>
+            <img src="/images/bed.png" alt="Custom bed" class="w-full h-auto rounded-lg border border-slate-200 dark:border-slate-700" loading="lazy" decoding="async" />
+          </li>
+          <li>
+            <img src="/images/tv_cabinet.png" alt="TV cabinet" class="w-full h-auto rounded-lg border border-slate-200 dark:border-slate-700" loading="lazy" decoding="async" />
+          </li>
+          <li>
+            <img src="/images/tea_table.png" alt="Tea table" class="w-full h-auto rounded-lg border border-slate-200 dark:border-slate-700" loading="lazy" decoding="async" />
+          </li>
+          <li>
+            <img src="/images/dressing_table.png" alt="Dressing table" class="w-full h-auto rounded-lg border border-slate-200 dark:border-slate-700" loading="lazy" decoding="async" />
+          </li>
+          <li>
+            <img src="/images/modular_kitchen.png" alt="Modular kitchen" class="w-full h-auto rounded-lg border border-slate-200 dark:border-slate-700" loading="lazy" decoding="async" />
+          </li>
+          <li>
+            <img src="/images/shoe_rack.png" alt="Shoe rack" class="w-full h-auto rounded-lg border border-slate-200 dark:border-slate-700" loading="lazy" decoding="async" />
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Warranty & Offers -->
+    <section class="py-16 md:py-20 bg-slate-50 dark:bg-slate-800/40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Warranty & Offers</h2>
+        <ul class="mt-6 grid sm:grid-cols-2 gap-6">
+          <li class="rounded-xl border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">Warranty: 10–25 Years</li>
+          <li class="rounded-xl border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">Festival Offer: 15% off till Dashain</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 md:py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-semibold">Get in Touch</h2>
+        <address class="not-italic mt-6 rounded-xl border border-slate-200 dark:border-slate-700 p-6 bg-white dark:bg-slate-900">
+          <p><span class="font-semibold text-slate-700 dark:text-slate-200">Address:</span> Suryadarshan Height, Near Dhamaltar Shantibatika Park</p>
+          <p class="mt-2"><span class="font-semibold text-slate-700 dark:text-slate-200">Phone:</span> <a class="text-indigo-600 dark:text-indigo-400 hover:underline" href="tel:+9779817284878">9817284878</a> / <a class="text-indigo-600 dark:text-indigo-400 hover:underline" href="tel:+9779802330089">9802330089</a></p>
+          <p class="mt-2"><span class="font-semibold text-slate-700 dark:text-slate-200">WhatsApp:</span> 9817284878</p>
+          <p class="mt-2"><span class="font-semibold text-slate-700 dark:text-slate-200">Store Hours:</span> 7:00 AM – 8:00 PM</p>
+          <p class="mt-2"><span class="font-semibold text-slate-700 dark:text-slate-200">Delivery:</span> Free within 3 km in Kathmandu Valley</p>
+          <p class="mt-2"><span class="font-semibold text-slate-700 dark:text-slate-200">Payment Options:</span> Cash, UPI</p>
+        </address>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-6">
-    <div class="container mx-auto px-4 text-center">
-      <p class="text-lg">&copy; 2025 Deep Darshan Traders Pvt. Ltd. All rights reserved.</p>
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center">
+      <p>&copy; <span id="year"></span> Deep Darshan Traders Pvt. Ltd.</p>
     </div>
   </footer>
+
+  <!-- Scroll to top -->
+  <button id="toTop" class="fixed bottom-5 right-5 hidden md:inline-flex items-center justify-center h-10 w-10 rounded-full bg-indigo-600 text-white shadow-lg focus-ring" aria-label="Scroll to top">↑</button>
+
+  <!-- Cookie consent -->
+  <div id="cookieBanner" class="fixed inset-x-0 bottom-0 z-50 hidden">
+    <div class="max-w-6xl mx-auto m-4 p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur shadow-lg">
+      <p class="text-sm">We use analytics to improve experience. You can accept or decline. No personal data is sold.</p>
+      <div class="mt-3 flex gap-2">
+        <button id="acceptCookies" class="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 focus-ring">Accept</button>
+        <button id="declineCookies" class="px-4 py-2 rounded-md border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800 focus-ring">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme handling
+    const themeStorageKey = 'ddt_theme';
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeColorMeta = document.getElementById('theme-color');
+    function applyTheme(theme) {
+      const root = document.documentElement;
+      const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      root.classList.toggle('dark', isDark);
+      themeIcon.textContent = isDark ? '☀️' : '🌙';
+      themeColorMeta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
+    }
+    function getStoredTheme() {
+      return localStorage.getItem(themeStorageKey) || 'system';
+    }
+    function setStoredTheme(value) {
+      localStorage.setItem(themeStorageKey, value);
+    }
+    applyTheme(getStoredTheme());
+    themeToggle?.addEventListener('click', () => {
+      const current = getStoredTheme();
+      const next = current === 'dark' ? 'light' : (current === 'light' ? 'system' : 'dark');
+      setStoredTheme(next);
+      applyTheme(next);
+      themeToggle.setAttribute('aria-pressed', String(document.documentElement.classList.contains('dark')));
+    });
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => applyTheme(getStoredTheme()));
+
+    // Mobile menu
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuButton?.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('hidden') === false;
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Scroll to top
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) toTop?.classList.remove('hidden');
+      else toTop?.classList.add('hidden');
+    });
+    toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Cookie consent & analytics gating
+    const CONSENT_KEY = 'ddt_cookie_consent';
+    const banner = document.getElementById('cookieBanner');
+    function loadAnalytics() {
+      if (navigator.doNotTrack === '1') return; // respect DNT
+      const id = window.GA_MEASUREMENT_ID || '';
+      if (!id) return; // no ID configured
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+      document.head.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', id, { anonymize_ip: true });
+    }
+    function setConsent(value) {
+      localStorage.setItem(CONSENT_KEY, value);
+    }
+    function getConsent() { return localStorage.getItem(CONSENT_KEY); }
+    const consent = getConsent();
+    if (!consent) banner.classList.remove('hidden');
+    if (consent === 'accepted') loadAnalytics();
+    document.getElementById('acceptCookies')?.addEventListener('click', () => { setConsent('accepted'); banner.classList.add('hidden'); loadAnalytics(); });
+    document.getElementById('declineCookies')?.addEventListener('click', () => { setConsent('declined'); banner.classList.add('hidden'); });
+
+    // Service worker registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
