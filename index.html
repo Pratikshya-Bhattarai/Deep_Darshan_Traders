@@ -1,105 +1,395 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ga-id="">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deep Darshan Traders Pvt. Ltd.</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deep Darshan Traders | Custom Furniture & Modular Interiors in Kathmandu</title>
+  <meta name="description" content="Deep Darshan Traders crafts quality custom furniture and modular kitchens in Kathmandu. Visit our showroom or contact us for tailored designs. 10–25 year warranty." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://deep-darshan-traders.vercel.app/" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Deep Darshan Traders | Custom Furniture & Modular Interiors" />
+  <meta property="og:description" content="Quality furniture, custom designs, modular kitchens. 10–25 year warranty." />
+  <meta property="og:url" content="https://deep-darshan-traders.vercel.app/" />
+  <meta property="og:image" content="https://deep-darshan-traders.vercel.app/images/sofa.png" />
+  <meta property="og:site_name" content="Deep Darshan Traders" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Deep Darshan Traders | Custom Furniture & Modular Interiors" />
+  <meta name="twitter:description" content="Quality furniture, custom designs, modular kitchens. 10–25 year warranty." />
+  <meta name="twitter:image" content="https://deep-darshan-traders.vercel.app/images/sofa.png" />
+
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="/images/sofa.png" fetchpriority="high" imagesrcset="/images/sofa.png 1200w, /images/another_sofa.png 1600w" imagesizes="(max-width: 768px) 100vw, 1200px" />
+
+  <!-- Icons & PWA manifest -->
+  <link rel="icon" href="/images/sofa.png" type="image/png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+  <!-- Early theme activation to avoid FOUC -->
+  <script>
+    (function() {
+      try {
+        var stored = localStorage.getItem('ddt-theme');
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && systemDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Tailwind config and CDN -->
+  <script>
+    tailwind = { config: {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'],
+            heading: ['"Playfair Display"', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif']
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8',
+              500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81'
+            }
+          },
+          boxShadow: { card: '0 6px 24px rgba(0,0,0,0.08)' }
+        }
+      }
+    }};
+  </script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
   <style>
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .animate-fade { animation: fadeIn 1s ease-in; }
-    .hover-scale:hover { transform: scale(1.05); transition: transform 0.3s; }
+    .focus-ring:focus { outline: 2px solid transparent; box-shadow: 0 0 0 4px rgba(99,102,241,0.5); }
+    .skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { position:fixed; left:1rem; top:1rem; width:auto; height:auto; padding:0.5rem 1rem; background:#111827; color:#fff; z-index:50; border-radius:.5rem; }
+    .glass { backdrop-filter: saturate(180%) blur(12px); background-color: rgba(255,255,255,0.7); }
+    .dark .glass { background-color: rgba(17,24,39,0.6); }
   </style>
 </head>
-<body class="font-sans bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100">
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-6 shadow-lg">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <h1 class="text-3xl font-extrabold tracking-tight">Deep Darshan Traders</h1>
-      <nav>
-        <ul class="flex space-x-6 text-lg">
-          <li><a href="#home" class="hover:text-yellow-300 transition-colors">Home</a></li>
-          <li><a href="#about" class="hover:text-yellow-300 transition-colors">About</a></li>
-          <li><a href="#services" class="hover:text-yellow-300 transition-colors">Services</a></li>
-          <li><a href="#contact" class="hover:text-yellow-300 transition-colors">Contact</a></li>
+
+<body class="font-sans text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-900 antialiased">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="sticky top-0 z-40 border-b border-slate-200/60 dark:border-slate-700/50">
+    <div class="glass">
+      <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <img src="/images/sofa.png" alt="Deep Darshan Traders logo" class="w-8 h-8 rounded-md shadow-sm" />
+          <span class="font-heading text-xl font-semibold tracking-tight group-hover:text-brand-600 transition-colors">Deep Darshan Traders</span>
+        </a>
+        <nav class="hidden md:block" aria-label="Primary">
+          <ul class="flex items-center gap-8">
+            <li><a class="hover:text-brand-600 focus-ring" href="#home">Home</a></li>
+            <li><a class="hover:text-brand-600 focus-ring" href="#about">About</a></li>
+            <li><a class="hover:text-brand-600 focus-ring" href="#products">Products</a></li>
+            <li><a class="hover:text-brand-600 focus-ring" href="#services">Services</a></li>
+            <li><a class="hover:text-brand-600 focus-ring" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="tel:+9779817284878" class="hidden sm:inline-flex items-center rounded-md bg-brand-600 px-3 py-2 text-white shadow-sm hover:bg-brand-700 focus-ring">Call Now</a>
+          <button id="theme-toggle" class="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" aria-label="Toggle dark mode">
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" viewBox="0 0 20 20" fill="currentColor"><path d="M10 15a5 5 0 100-10 5 5 0 000 10z"/><path fill-rule="evenodd" d="M10 1a1 1 0 011 1v1a1 1 0 11-2 0V2a1 1 0 011-1zm0 15a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM3.22 4.22a1 1 0 011.42 0L5.34 5a1 1 0 11-1.42 1.42L3.22 5.64a1 1 0 010-1.42zm11.44 9.9a1 1 0 011.42 0l.7.7a1 1 0 11-1.42 1.42l-.7-.7a1 1 0 010-1.42zM1 10a1 1 0 011-1h1a1 1 0 110 2H2a1 1 0 01-1-1zm15-1a1 1 0 100 2h1a1 1 0 100-2h-1zm-1.34-3.66a1 1 0 010 1.42L14.36 7a1 1 0 11-1.42-1.42l.7-.7a1 1 0 011.42 0zM4.64 14.36a1 1 0 010 1.42l-.7.7a1 1 0 11-1.42-1.42l.7-.7a1 1 0 011.42 0z" clip-rule="evenodd"/></svg>
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:hidden" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.003 8.003 0 1010.586 10.586z"/></svg>
+          </button>
+          <button id="menu-toggle" class="md:hidden p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <nav id="primary-menu" class="md:hidden container mx-auto px-4 pb-3 hidden" aria-label="Mobile">
+        <ul class="grid gap-2">
+          <li><a class="block rounded-md px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" href="#home">Home</a></li>
+          <li><a class="block rounded-md px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" href="#about">About</a></li>
+          <li><a class="block rounded-md px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" href="#products">Products</a></li>
+          <li><a class="block rounded-md px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" href="#services">Services</a></li>
+          <li><a class="block rounded-md px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 focus-ring" href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="bg-cover bg-center h-96 flex items-center justify-center animate-fade" style="background-image: url('https://source.unsplash.com/random/1600x900/?furniture,modern')">
-    <div class="text-center text-white bg-black bg-opacity-50 p-8 rounded-lg">
-      <h2 class="text-5xl font-bold mb-4 drop-shadow-lg">Vibrant Furniture Solutions</h2>
-      <p class="text-xl font-semibold">Transform Your Space with Style!</p>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700">About Us</h2>
-      <p class="text-lg text-gray-800 max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md hover-scale">
-        Deep Darshan Traders Pvt. Ltd. brings 8+ years of crafting high-quality furniture and furnishings. Our focus on quality, customization, and modern designs adds elegance to homes and offices alike.
-      </p>
-    </div>
-  </section>
-
-  <!-- Materials Section -->
-  <section class="bg-gradient-to-r from-pink-200 to-purple-200 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-8 text-purple-800">Our Materials</h2>
-      <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Japanese Technology Tesa Board</li>
-        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Seesaw</li>
-        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Local Materials</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700">Our Services</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-        <div class="bg-yellow-100 p-6 rounded-lg shadow-md hover-scale text-center text-gray-800">Furniture Assembly at Your Location</div>
-        <div class="bg-yellow-100 p-6 rounded-lg shadow-md hover-scale text-center text-gray-800">Custom Designs Available</div>
-        <div class="bg-yellow-100 p-6 rounded-lg shadow-md hover-scale text-center text-gray-800">Visit Our Showroom</div>
+  <main id="main-content">
+    <section id="home" class="relative">
+      <picture>
+        <source srcset="/images/another_sofa.png" media="(min-width: 1024px)" />
+        <img src="/images/sofa.png" alt="Modern living room furniture by Deep Darshan Traders" width="1600" height="900" class="w-full h-[70vh] object-cover" loading="eager" fetchpriority="high" />
+      </picture>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/30 to-transparent"></div>
+      <div class="absolute inset-0 flex items-center">
+        <div class="container mx-auto px-4">
+          <div class="max-w-2xl text-white">
+            <h1 class="font-heading text-4xl sm:text-5xl font-semibold leading-tight drop-shadow">Crafted Furniture. Modern Interiors.</h1>
+            <p class="mt-4 text-lg sm:text-xl text-slate-100/90">Custom designs, premium materials, and meticulous craftsmanship for homes and offices.</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#products" class="inline-flex items-center rounded-md bg-brand-600 px-5 py-2.5 text-white shadow-sm hover:bg-brand-700 focus-ring">Explore Products</a>
+              <a href="https://wa.me/9779817284878" class="inline-flex items-center rounded-md bg-white/90 px-5 py-2.5 text-slate-900 shadow-sm hover:bg-white focus-ring">WhatsApp</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Warranty & Offers Section -->
-  <section class="bg-gradient-to-r from-blue-200 to-indigo-200 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-800">Warranty & Offers</h2>
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Warranty: 10–25 Years</li>
-        <li class="bg-white p-4 rounded-lg shadow-md hover-scale text-center text-gray-800">Festival Offer: 15% Off till Dashain</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700">Get in Touch</h2>
-      <div class="bg-white p-6 rounded-lg shadow-md max-w-3xl mx-auto text-gray-800">
-        <p class="mb-2"><strong class="text-indigo-600">Address:</strong> Suryadarshan Height, Near Dhamaltar Shantibatika Park</p>
-        <p class="mb-2"><strong class="text-indigo-600">Phone:</strong> 9817284878 / 9802330089</p>
-        <p class="mb-2"><strong class="text-indigo-600">WhatsApp:</strong> 9817284878</p>
-        <p class="mb-2"><strong class="text-indigo-600">Store Hours:</strong> 7:00 AM – 8:00 PM</p>
-        <p class="mb-2"><strong class="text-indigo-600">Delivery:</strong> Free within 3 km in Kathmandu Valley</p>
-        <p><strong class="text-indigo-600">Payment Options:</strong> Cash, UPI</p>
+    <section id="about" class="py-16 sm:py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="font-heading text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white">About Us</h2>
+            <p class="mt-4 text-slate-700 dark:text-slate-300 leading-relaxed">Deep Darshan Traders Pvt. Ltd. brings 8+ years of crafting high‑quality furniture and modular interiors. We focus on durability, customization, and modern design to add elegance to homes and offices.</p>
+            <ul class="mt-6 grid sm:grid-cols-2 gap-4">
+              <li class="rounded-lg bg-white dark:bg-slate-800 p-4 shadow-card">10–25 year warranty</li>
+              <li class="rounded-lg bg-white dark:bg-slate-800 p-4 shadow-card">Japanese Tesa board & premium hardware</li>
+              <li class="rounded-lg bg-white dark:bg-slate-800 p-4 shadow-card">On‑site assembly</li>
+              <li class="rounded-lg bg-white dark:bg-slate-800 p-4 shadow-card">Custom designs</li>
+            </ul>
+          </div>
+          <div class="rounded-xl overflow-hidden shadow-card">
+            <img src="/images/modular_kitchen.png" alt="Modular kitchen designed by Deep Darshan Traders" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-6">
-    <div class="container mx-auto px-4 text-center">
-      <p class="text-lg">&copy; 2025 Deep Darshan Traders Pvt. Ltd. All rights reserved.</p>
+    <section id="products" class="py-16 sm:py-20 bg-slate-50 dark:bg-slate-900/30">
+      <div class="container mx-auto px-4">
+        <div class="flex items-end justify-between gap-4">
+          <h2 class="font-heading text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white">Featured Products</h2>
+          <a href="#contact" class="hidden sm:inline text-brand-700 dark:text-brand-300 hover:underline">Request a quote</a>
+        </div>
+        <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <li class="group rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-card">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="/images/bed.png" alt="Premium wooden bed" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold">Bed</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-400">Solid build with elegant finish.</p>
+            </div>
+          </li>
+          <li class="group rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-card">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="/images/dressing_table.png" alt="Modern dressing table" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-4"><h3 class="text-lg font-semibold">Dressing Table</h3><p class="text-sm text-slate-600 dark:text-slate-400">Functional storage with style.</p></div>
+          </li>
+          <li class="group rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-card">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="/images/tv_cabinet.png" alt="TV cabinet" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-4"><h3 class="text-lg font-semibold">TV Cabinet</h3><p class="text-sm text-slate-600 dark:text-slate-400">Clean lines, smart organization.</p></div>
+          </li>
+          <li class="group rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-card">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="/images/sofa.png" alt="Comfortable sofa" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-4"><h3 class="text-lg font-semibold">Sofa</h3><p class="text-sm text-slate-600 dark:text-slate-400">Comfort meets craftsmanship.</p></div>
+          </li>
+          <li class="group rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-card">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="/images/shoe_rack.png" alt="Shoe rack" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-4"><h3 class="text-lg font-semibold">Shoe Rack</h3><p class="text-sm text-slate-600 dark:text-slate-400">Neat storage for entryways.</p></div>
+          </li>
+          <li class="group rounded-xl overflow-hidden bg-white dark:bg-slate-800 shadow-card">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="/images/tea_table.png" alt="Tea table" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="p-4"><h3 class="text-lg font-semibold">Tea Table</h3><p class="text-sm text-slate-600 dark:text-slate-400">Compact and elegant.</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="materials" class="py-16 sm:py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="font-heading text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white text-center">Materials</h2>
+        <ul class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <li class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-card text-center">Japanese technology Tesa board</li>
+          <li class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-card text-center">Seesaw</li>
+          <li class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-card text-center">Local materials</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="services" class="py-16 sm:py-20 bg-slate-50 dark:bg-slate-900/30">
+      <div class="container mx-auto px-4">
+        <h2 class="font-heading text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white text-center">Our Services</h2>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-card text-center">Furniture assembly at your location</div>
+          <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-card text-center">Custom designs available</div>
+          <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-card text-center">Visit our showroom</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="warranty" class="py-16 sm:py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="font-heading text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white text-center">Warranty & Offers</h2>
+        <ul class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <li class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-card text-center">Warranty: 10–25 years</li>
+          <li class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-card text-center">Festival offer: 15% off till Dashain</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 sm:py-20 bg-slate-50 dark:bg-slate-900/30">
+      <div class="container mx-auto px-4">
+        <h2 class="font-heading text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white text-center">Get in Touch</h2>
+        <div class="mt-8 grid lg:grid-cols-2 gap-6">
+          <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-card">
+            <dl class="space-y-3">
+              <div><dt class="font-medium text-slate-900 dark:text-white">Address</dt><dd class="text-slate-700 dark:text-slate-300">Suryadarshan Height, Near Dhamaltar Shantibatika Park</dd></div>
+              <div><dt class="font-medium text-slate-900 dark:text-white">Phone</dt><dd><a class="hover:underline" href="tel:+9779817284878">9817284878</a> / <a class="hover:underline" href="tel:+9779802330089">9802330089</a></dd></div>
+              <div><dt class="font-medium text-slate-900 dark:text-white">WhatsApp</dt><dd><a class="hover:underline" href="https://wa.me/9779817284878">9817284878</a></dd></div>
+              <div><dt class="font-medium text-slate-900 dark:text-white">Store Hours</dt><dd>7:00 AM – 8:00 PM</dd></div>
+              <div><dt class="font-medium text-slate-900 dark:text-white">Delivery</dt><dd>Free within 3 km in Kathmandu Valley</dd></div>
+              <div><dt class="font-medium text-slate-900 dark:text-white">Payment</dt><dd>Cash, UPI</dd></div>
+            </dl>
+            <div class="mt-6 flex gap-3">
+              <a href="https://maps.google.com/?q=Suryadarshan%20Height%20Kathmandu" class="inline-flex items-center rounded-md bg-white dark:bg-slate-700 px-4 py-2 border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-600 focus-ring">View on Map</a>
+              <a href="mailto:contact@example.com" class="inline-flex items-center rounded-md bg-brand-600 px-4 py-2 text-white hover:bg-brand-700 focus-ring">Email Us</a>
+            </div>
+          </div>
+          <div class="rounded-xl overflow-hidden shadow-card">
+            <img src="/images/daraz.png" alt="Showroom and furniture display" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="scrolltop" class="fixed bottom-6 right-6 hidden">
+    <button class="p-3 rounded-full bg-brand-600 text-white shadow-lg hover:bg-brand-700 focus-ring" aria-label="Scroll to top">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l5 5a1 1 0 01-1.414 1.414L11 6.414V17a1 1 0 11-2 0V6.414L5.707 9.707A1 1 0 114.293 8.293l5-5A1 1 0 0110 3z" clip-rule="evenodd"/></svg>
+    </button>
+  </div>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="container mx-auto px-4 py-10 text-center text-sm text-slate-600 dark:text-slate-400">
+      <p>&copy; <span id="year"></span> Deep Darshan Traders Pvt. Ltd. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Cookie consent -->
+  <div id="cookie-consent" class="fixed inset-x-0 bottom-0 z-50 hidden">
+    <div class="container mx-auto px-4 pb-6">
+      <div class="rounded-xl bg-white dark:bg-slate-800 shadow-card p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-3">
+        <p class="text-sm sm:text-base">We use analytics to improve your experience. You can accept or reject optional cookies.</p>
+        <div class="ml-auto flex gap-3">
+          <button id="reject-cookies" class="px-4 py-2 rounded-md border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 focus-ring">Reject</button>
+          <button id="accept-cookies" class="px-4 py-2 rounded-md bg-brand-600 text-white hover:bg-brand-700 focus-ring">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Deep Darshan Traders Pvt. Ltd.",
+    "url": "https://deep-darshan-traders.vercel.app/",
+    "logo": "https://deep-darshan-traders.vercel.app/images/sofa.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Suryadarshan Height, Near Dhamaltar Shantibatika Park",
+      "addressCountry": "NP"
+    },
+    "telephone": "+9779817284878",
+    "sameAs": []
+  }
+  </script>
+
+  <script>
+    // Mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const primaryMenu = document.getElementById('primary-menu');
+    if (menuToggle && primaryMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = primaryMenu.classList.toggle('hidden') === false;
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('ddt-theme', isDark ? 'dark' : 'light'); } catch (e) {}
+      });
+    }
+
+    // Scroll to top
+    const scrollTopWrap = document.getElementById('scrolltop');
+    const scrollBtn = scrollTopWrap?.querySelector('button');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) scrollTopWrap.classList.remove('hidden'); else scrollTopWrap.classList.add('hidden');
+    });
+    scrollBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Cookie consent
+    const consentKey = 'ddt-cookie-consent';
+    const consentBanner = document.getElementById('cookie-consent');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const rejectBtn = document.getElementById('reject-cookies');
+
+    function maybeShowConsent() {
+      try {
+        const v = localStorage.getItem(consentKey);
+        if (!v) consentBanner.classList.remove('hidden');
+      } catch (e) {}
+    }
+    function setConsent(choice) {
+      try { localStorage.setItem(consentKey, choice); } catch (e) {}
+      consentBanner.classList.add('hidden');
+      if (choice === 'granted') maybeLoadAnalytics();
+    }
+    acceptBtn?.addEventListener('click', () => setConsent('granted'));
+    rejectBtn?.addEventListener('click', () => setConsent('denied'));
+    maybeShowConsent();
+
+    // Optional analytics guarded by consent and presence of GA ID on <html data-ga-id="">
+    function maybeLoadAnalytics() {
+      const gaId = document.documentElement.getAttribute('data-ga-id');
+      if (!gaId) return;
+      if (!window.dataLayer) window.dataLayer = [];
+      function gtag(){ window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', gaId, { anonymize_ip: true });
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+      document.head.appendChild(s);
+    }
+    try { if (localStorage.getItem(consentKey) === 'granted') maybeLoadAnalytics(); } catch (e) {}
+
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
